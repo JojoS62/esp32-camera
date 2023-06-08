@@ -57,6 +57,9 @@ void cam_give(camera_fb_t *dma_buffer);
 
 void cam_give_all(void);
 
+void cam_free_dma(void);
+esp_err_t cam_dma_config(const camera_config_t *config);
+
 #ifdef __cplusplus
 }
 #endif

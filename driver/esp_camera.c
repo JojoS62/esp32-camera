@@ -484,3 +484,9 @@ void esp_camera_return_all(void) {
     cam_give_all();
 }
 
+void esp_camera_change_resolution(const camera_config_t *config, framesize_t frame_size) {
+    
+    cam_free_dma();
+
+    // int ret = cam_dma_config(config);
+}

@@ -248,7 +248,7 @@ static lldesc_t * allocate_dma_descriptors(uint32_t count, uint16_t size, uint8_
     return dma;
 }
 
-static esp_err_t cam_dma_config(const camera_config_t *config)
+esp_err_t cam_dma_config(const camera_config_t *config)
 {
     bool ret = ll_cam_dma_sizes(cam_obj);
     if (0 == ret) {
@@ -511,4 +511,25 @@ void cam_give_all(void) {
     for (int x = 0; x < cam_obj->frame_cnt; x++) {
         cam_obj->frames[x].en = 1;
     }
+}
+
+void cam_free_dma(void) {
+    
+    ll_cam_set_sample_mode(cam_obj, (pixformat_t)config->pixel_format, config->xclk_freq_hz, sensor_pid);
+
+    // if (cam_obj->dma) {
+    //     free(cam_obj->dma);
+    // }
+    // if (cam_obj->dma_buffer) {
+    //     free(cam_obj->dma_buffer);
+    // }
+    // if (cam_obj->frames) {
+    //     for (int x = 0; x < cam_obj->frame_cnt; x++) {
+    //         free(cam_obj->frames[x].fb.buf - cam_obj->frames[x].fb_offset);
+    //         if (cam_obj->frames[x].dma) {
+    //             free(cam_obj->frames[x].dma);
+    //         }
+    //     }
+    //     free(cam_obj->frames);
+    // }
 }
