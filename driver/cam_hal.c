@@ -515,7 +515,7 @@ void cam_give_all(void) {
 
 void cam_free_dma(void) {
     
-    ll_cam_set_sample_mode(cam_obj, (pixformat_t)config->pixel_format, config->xclk_freq_hz, sensor_pid);
+    // ll_cam_set_sample_mode(cam_obj, (pixformat_t)config->pixel_format, config->xclk_freq_hz, sensor_pid);
 
     // if (cam_obj->dma) {
     //     free(cam_obj->dma);
